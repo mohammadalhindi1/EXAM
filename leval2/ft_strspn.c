@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   first_word.c                                       :+:      :+:    :+:   */
+/*   ft_strspn.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malhendi@student.42amman.com <malhendi>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/27 15:04:32 by malhendi@st       #+#    #+#             */
-/*   Updated: 2025/11/27 15:04:32 by malhendi@st      ###   ########.fr       */
+/*   Created: 2025/11/29 06:06:46 by malhendi@st       #+#    #+#             */
+/*   Updated: 2025/11/29 06:06:46 by malhendi@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
 
-int main(int ac, char *av[])
+size_t	ft_strspn(const char *s, const char *accept)
 {
-	if(ac == 2)
+	size_t  i;
+	size_t  j;
+	size_t  check;
+
+	i = 0;
+	while (s[i])
 	{
-		int i = 0;
-		
-		while((av[1][i] == ' ') || (av[1][i] > 8 && av[1][i] < 14))
-			i++;
-		while ((av[1][i]) && (av[1][i] != ' ') && !(av[1][i] > 8 && av[1][i] < 14))
+		j = 0;
+		check = 0;
+		while (accept[j])
 		{
-			write(1, &av[1][i], 1);
-            i++;
+			if (s[i] == accept[j])
+				check = 1;
+			j++;
 		}
+		if (check == 0)
+			return (i);
+		i++;
 	}
-	write(1, "\n", 1);
+	return (i);
 }
