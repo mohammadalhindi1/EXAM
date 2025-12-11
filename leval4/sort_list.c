@@ -1,22 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_foreach.c                                  :+:      :+:    :+:   */
+/*   sort_list.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malhendi <malhendi@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/11 07:03:37 by malhendi          #+#    #+#             */
-/*   Updated: 2025/12/11 07:03:37 by malhendi         ###   ########.fr       */
+/*   Created: 2025/12/11 07:03:23 by malhendi          #+#    #+#             */
+/*   Updated: 2025/12/11 07:03:23 by malhendi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_list.h"
+#include "list.h"
 
-void    ft_list_foreach(t_list *begin_list, void (*f)(void *))
+t_list	*sort_list(t_list *lst, int (*cmp)(int, int))
 {
-    while (begin_list)
-    {
-        (*f)(begin_list->data);
-        begin_list = begin_list->next;
-    }  
+	int		tmp;
+	t_list	*head;
+
+	if (!lst)
+		return (0);
+	head = lst;
+	while (lst && lst->next)
+	{
+		if ((*cmp)(lst->data, lst->next->data) == 0)
+		{
+			tmp = lst->data;
+			lst->data = lst->next->data;
+			lst->next->data = tmp;
+			lst = head;
+		}
+		else
+			lst = lst->next;
+	}
+	return (head);
 }

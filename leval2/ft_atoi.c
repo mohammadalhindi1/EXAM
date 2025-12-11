@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malhendi@student.42amman.com <malhendi>    +#+  +:+       +#+        */
+/*   By: malhendi <malhendi@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 03:10:06 by malhendi@st       #+#    #+#             */
-/*   Updated: 2025/11/29 03:10:07 by malhendi@st      ###   ########.fr       */
+/*   Updated: 2025/12/11 06:51:24 by malhendi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,3 +31,13 @@ int ft_atoi(const char *str)
 	}
 	return(t * s);
 }
+
+/*
+int main()
+{
+	char str[] = "   -12345abc";
+	int num = ft_atoi(str);
+	printf("%d\n", num);
+	return 0;
+}
+*/

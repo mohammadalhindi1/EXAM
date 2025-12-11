@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: malhendi <malhendi@student.42amman.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/11 07:03:41 by malhendi          #+#    #+#             */
+/*   Updated: 2025/12/11 07:03:41 by malhendi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 
 int	ft_intlen(long n)
@@ -40,3 +52,42 @@ char	*ft_itoa(int nbr)
 		s[0] = '-';
 	return (s);
 }
+
+/*
+char	*ft_itoa(int n)
+{
+	char	*str;
+	long	num;
+	int		len;
+
+	num = n;
+	if (n <= 0)
+		len = 1;
+	else
+		len = 0;
+	while (n)
+	{
+		n /= 10;
+		len++;
+	}
+
+	str = malloc(sizeof(char) * (len + 1));
+	str[len] = '\0';
+
+	if (num < 0)
+		num = -num;
+
+	if (num == 0)
+		str[0] = '0';
+
+	while (num)
+	{
+		str[--len] = (num % 10) + '0';
+		num /= 10;
+	}
+
+	if (n < 0)
+		str[0] = '-';
+	return (str);
+}
+*/
