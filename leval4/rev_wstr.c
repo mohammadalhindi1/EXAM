@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "unistd.h"
+#include <unistd.h>
 
 int	main(int ac, char **av)
 {
@@ -20,7 +20,7 @@ int	main(int ac, char **av)
     
 	if (ac == 2)
 	{
-		while (av[1][i] != '\0')
+		while (av[1][i])
 			i++;
 		i--;
 		while (i >= 0)
