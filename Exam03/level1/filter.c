@@ -15,17 +15,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 void error_exit(char *msg)
 {
     fprintf(stderr,"Error %s\n", msg);
     exit(1);
 }
 
-
 char *ft_memmem(char *stash, size_t stash_len, char *s, size_t s_len)
 {
-    size_t i ;
+    size_t i = 0;
     size_t j ;
 
     if (!stash || !s)
@@ -35,7 +33,6 @@ char *ft_memmem(char *stash, size_t stash_len, char *s, size_t s_len)
     if (stash_len < s_len)
         return NULL;
 
-    i = 0;
     while (i + s_len <= stash_len)
     {
         j = 0;
@@ -48,25 +45,21 @@ char *ft_memmem(char *stash, size_t stash_len, char *s, size_t s_len)
     return (NULL);
 }
 
-
 int main(int ac, char **av)
 {
-    char *stash = NULL;
-    char buffer[4096];
-    size_t stash_len;
-    size_t s_len;
-    ssize_t r;
-
     if (ac != 2 || !av[1][0])
         return (1);
 
-    s_len = strlen(av[1]);
-    stash_len = 0;
+    char *stash = NULL;
+    char buffer[4096];
+    size_t stash_len = 0;
+    size_t s_len = strlen(av[1]);
+    ssize_t r;
 
-     while ((r = read(0, buffer, sizeof(buffer))) > 0)
-     {
+    while ((r = read(0, buffer, sizeof(buffer))) > 0)
+    {
         char *tmp = realloc(stash, stash_len + r);
-           if (!tmp)
+        if (!tmp)
             error_exit("malloc failed");
         stash = tmp;        
         memmove(stash + stash_len, buffer, r);
@@ -92,7 +85,7 @@ int main(int ac, char **av)
             write(1, stash, stash_len);
             stash_len = 0;
         }
-     }
+    }
     if (r < 0)
     error_exit("read failed");
     if (stash_len > 0)
