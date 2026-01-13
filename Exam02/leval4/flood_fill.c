@@ -1,3 +1,4 @@
+// The stupid solution
 typedef struct  s_point
 {
 int           x;
@@ -925,10 +926,6 @@ void fill(char**tab, t_point size, t_point begin, char to_fill)
 	fill(tab, size, (t_point){begin.x-1, begin.y}, to_fill);
 	fill(tab, size, (t_point){begin.x, begin.y-1}, to_fill);
     fill(tab, size, (t_point){begin.x+1, begin.y}, to_fill);
-	fill(tab, size, (t_point){begin.x, begin.y+1}, to_fill);
-	fill(tab, size, (t_point){begin.x-1, begin.y}, to_fill);
-	fill(tab, size, (t_point){begin.x, begin.y-1}, to_fill);
-	fill(tab, size, (t_point){begin.x+1, begin.y}, to_fill);
 	fill(tab, size, (t_point){begin.x, begin.y+1}, to_fill);
 	fill(tab, size, (t_point){begin.x-1, begin.y}, to_fill);
 	fill(tab, size, (t_point){begin.x, begin.y-1}, to_fill);
