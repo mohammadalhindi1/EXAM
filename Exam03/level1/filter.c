@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#define _GNU_SOURCE
 #include <string.h>
 #include <unistd.h>
 #include <stdio.h>
@@ -92,5 +91,4 @@ int main(int ac, char **av)
     if (stash_len > 0)
         write(1,stash,stash_len);
     free(stash);
-    return (0);
 }
