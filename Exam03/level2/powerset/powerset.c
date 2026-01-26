@@ -1,6 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   powerset.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: malhendi <malhendi@student.42amman.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/26 19:22:14 by malhendi          #+#    #+#             */
+/*   Updated: 2026/01/26 19:22:14 by malhendi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
+
 void print_subset(int *subset, int len)
 {
 	int i = 0;
@@ -49,3 +62,4 @@ int	main(int argc, char **argv)
 	free(subset);
 	return (0);
 }
+
