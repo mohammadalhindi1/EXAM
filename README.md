@@ -29,5 +29,5 @@ This repository contains **practice exercises and solutions** for preparing to 4
 All exercises are **practice-only** and written or adapted for learning purposes.  
 If any content is found to be too close to official exam material, it will be removed immediately.
 
-## License
+```
 This repository is for educational purposes only.
