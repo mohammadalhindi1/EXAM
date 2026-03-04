@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#define _GNU_SOURCE
+#define _GNU_SOURCE 
+//If you wish to use memmem (no need to type it)
 #include <string.h>
 #include <unistd.h>
 #include <stdio.h>
@@ -94,3 +95,4 @@ int main(int ac, char **av)
     free(stash);
 
 }
+
