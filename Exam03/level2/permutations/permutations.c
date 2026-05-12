@@ -10,90 +10,55 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+//DONE
+#include<unistd.h>
+#include<stdio.h>
+ void swap(char*a,char *b)
+ {
+    char t = *a;
+    *a = *b;
+    *b = t;
+ }
+ void sort(char *str)
+ {
+    int i =0;
+    int j;
+    while (str[i])
+    {
+        j= i+1;
+        while (str[j])
+        {
+            if(str[i]> str[j])
+            swap(&str[i], &str[j]);
+            j++;
+        }
+        
+      i++;  
+    }
+    
+ }
+  void perm(char *str ,int start)
+  {
+    int i = start;
+    if(!str[start +1])
+    {
+        puts(str);
+    }
+    while (str[i])
+    {
+        swap(&str[i], &str[start]);
+        sort(str+start+1);
+        perm(str,start+1);
+        sort(str+start);
+      i++; 
+    }
+    
+  }
+   int main(int ac ,char *av[])
+   {
+    if(ac != 2 || !av[1])
+      return (1); 
 
-int str_len(char *s)
-{
-	int i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
-
-void swap (char *a, char *b)
-{
-	char tmp = *a;
-	*a = *b;
-	*b = tmp;
-}
-
-void sort(char *s)
-{
-	int i =0;
-	int j;
-
-	while (s[i])
-	{
-		j = i + 1;
-		while (s[j])
-		{
-			if (s[i] > s[j])
-				swap(&s[i], &s[j]);
-			j++;
-		}
-		i++;
-	}
-}
-
-void sort_from(char *s, int start)
-{
-	int i = start;
-	int j;
-
-	while (s[i])
-	{
-		j = i + 1;
-		while (s[j])
-		{
-			if (s[i] > s[j])
-				swap(&s[i], &s[j]);
-			j++;
-		}
-		i++;
-	}
-}
-
-
-void permute(char *s, int start)
-{
-	int i;
-	int len = str_len(s);
-
-	if (start == len)
-	{
-		write(1, s, len);
-		write (1, "\n", 1);
-		return ;
-	}
-
-	i = start;
-	while (i < len)
-	{
-		sort_from(s, start);
-		swap(&s[start], &s[i]);
-		permute(s, start + 1);
-		swap(&s[start], &s[i]);
-		i++;
-	}
-}
-
-
-int main(int argc, char **argv)
-{
-	if (argc != 2)
-		return (1);
-	sort(argv[1]);
-	permute(argv[1], 0);
-	return (0);
-
-}
+    sort(av[1]);
+    perm(av[1],0);
+   }
