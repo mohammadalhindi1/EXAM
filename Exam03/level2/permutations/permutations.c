@@ -41,9 +41,7 @@
   {
     int i = start;
     if(!str[start +1])
-    {
         puts(str);
-    }
     while (str[i])
     {
         swap(&str[i], &str[start]);
