@@ -31,7 +31,7 @@ void	sort(char *str)
 		while(str[j])
 		{
 			if(str[i] > str[j])
-				swap(&sytr[i], &styr[j]);
+				swap(&str[i], &str[j]);
 			j++;
 		}
 		i++;
@@ -42,7 +42,10 @@ void	perm(char *str, int start)
 {
 	int i = start;
 	if(!str[start+1])
+	{
 		puts(str);
+		return;
+	}
 	while(str[i])
 	{
 		swap(&str[i],&str[start]);
