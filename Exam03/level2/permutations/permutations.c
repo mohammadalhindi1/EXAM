@@ -48,7 +48,7 @@
         sort(str+start+1);
         perm(str,start+1);
         sort(str+start);
-      i++; 
+        i++; 
     }
     
   }
