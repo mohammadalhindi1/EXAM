@@ -1,3 +1,25 @@
+#include <unistd.h>
+#include <stdlib.h>
+
+char *get_next_line(int fd)
+{
+    int r;
+    char *line = malloc(100000), *buf = line;
+
+    if(fd < 0 || !line)
+        return(NULL);
+    while((r = read(fd, buf, 1)) > 0)
+    {
+        if(*buf++ == '\n')
+            break;
+    }
+    if(r <= 0 && buf == line)
+        return(free(line),NULL);
+    *buf = 0;
+    return(line);
+}
+
+/*
 #include "get_next_line.h"
 
 char *ft_strchr(char *s, int c)
@@ -42,8 +64,7 @@ int str_append_mem(char **s1, char *s2, size_t size2)
   char *tmp = malloc(size2 + size1 + 1);
   if (!tmp)
     return 0;
-  if (*s1)
-    ft_memcpy(tmp, *s1, size1);
+  ft_memcpy(tmp, *s1, size1);
   ft_memcpy(tmp + size1, s2, size2);
   tmp[size1 + size2] = '\0';
   free(*s1);
@@ -118,3 +139,4 @@ char *get_next_line(int fd)
   ft_memmove(b, tmp + 1, ft_strlen(tmp + 1) + 1); // add
   return ret;
 }
+*/

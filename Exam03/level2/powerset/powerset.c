@@ -1,16 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   powerset.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: malhendi <malhendi@student.42amman.com>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/26 19:22:14 by malhendi          #+#    #+#             */
-/*   Updated: 2026/01/26 19:22:14 by malhendi         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
 
@@ -43,7 +30,8 @@ int	main(int argc, char **argv)
 	int target;
 	int *arr;
 	int *subset;
-	int i;
+	int i = 0;
+
 	if (argc <= 2)
 		return (1);
 	target = atoi(argv[1]);
@@ -51,7 +39,6 @@ int	main(int argc, char **argv)
 	subset = malloc(sizeof(int) * (argc - 2));
 	if (!arr || !subset)
 		return (1);
-	i = 0;
 	while (i < argc - 2)
 	{
 		arr[i] = atoi(argv[i + 2]);

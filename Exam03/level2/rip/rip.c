@@ -1,16 +1,13 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   rip.c                                              :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: malhendi <malhendi@student.42amman.com>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/26 19:22:14 by malhendi          #+#    #+#             */
-/*   Updated: 2026/01/26 19:22:14 by malhendi         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include <unistd.h>
+
+void print(char *s)
+{
+    int i = 0;
+    
+    while (s[i])
+        write(1, &s[i++], 1);
+    write(1, "\n", 1);
+}
 
 int balanced(char *s)
 {
@@ -30,15 +27,6 @@ int balanced(char *s)
         i++;
     }
     return (b == 0);
-}
-
-void print(char *s)
-{
-    int i = 0;
-
-    while (s[i])
-        write(1, &s[i++], 1);
-    write(1, "\n", 1);
 }
 
 int count_need(char *s)
